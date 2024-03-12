@@ -7,7 +7,7 @@ RUN useradd -u 1000 backend
 
 RUN sed -i 's|html|html/public|' /etc/apache2/sites-available/000-default.conf
 RUN sed -i 's/www-data/backend/' /etc/apache2/envvars
-
+RUN a2enmod rewrite
 
 WORKDIR /var/www/html
 

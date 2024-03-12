@@ -2,7 +2,12 @@ FROM php:8.3-apache
 
 RUN curl https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=2.7.2
 RUN apt-get update && apt-get install -y unzip
+
+RUN useradd -u 1000 backend
+
 RUN sed -i 's|html|html/public|' /etc/apache2/sites-available/000-default.conf
+RUN sed -i 's/www-data/backend/' /etc/apache2/envvars
+
 
 WORKDIR /var/www/html
 
@@ -11,4 +16,5 @@ RUN composer install --no-dev --no-scripts --no-autoloader
 
 COPY . .
 
+RUN chown -R backend:backend /var/www/html
 

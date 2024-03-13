@@ -15,20 +15,8 @@ export default {
 
     if(code) {
         var data = new URLSearchParams();
-        data.append('grant_type', 'authorization_code');
-        data.append('client_id', 'test-oauth');
-        data.append('client_secret', 'test');
         data.append('code', code);
-        data.append('redirect_uri', 'http://localhost');
-        data.append('scope', 'openid');
-
-        var response = fetch('/auth/realms/jusbaires/protocol/openid-connect/token', {
-            method: 'post',
-            headers: { 
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body : data
-        }).then(response => response.text())
+        var response = fetch('/api/token?' +  data).then(response => response.text())
         .then(result => {
           localStorage.setItem('token', result);
           window.location.replace(window.location.pathname);

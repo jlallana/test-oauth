@@ -16,5 +16,5 @@ RUN composer install --no-dev --no-scripts --no-autoloader
 
 COPY . .
 
-RUN chown -R backend:backend /var/www/html
+RUN chown -R backend:backend /var/www/html/storage /var/www/html/bootstrap/cache
 

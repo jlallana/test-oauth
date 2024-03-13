@@ -17,6 +17,7 @@ axios.interceptors.request.use(async (config) => {
         window.location.href = "https://idm.jusbaires.gob.ar/auth/realms/jusbaires/protocol/openid-connect/auth?client_id=test-oauth&redirect_uri=http://localhost&response_type=code&scope=openid";
     }
 
+
     let token2 = JSON.parse(token);
 
     config.headers['Authorization'] = `Bearer ${token2.access_token}`;

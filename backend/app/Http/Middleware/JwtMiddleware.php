@@ -12,6 +12,8 @@ class JwtMiddleware
     public function handle(Request $request, Closure $next)
     {
 
+
+        /*
         $token = $request->header('Authorization');
 
 
@@ -33,6 +35,9 @@ class JwtMiddleware
 
 
         return response()->json(['error' => 'Token inválido'], 401);
+
+        */
+        
 
         return $next($request);
     }

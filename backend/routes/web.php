@@ -7,3 +7,4 @@ Route::get('/', function () {
 });
 
 Route::apiResource('api/example', \App\Http\Controllers\ApiController::class);
+Route::apiResource('api/token', \App\Http\Controllers\TokenController::class);

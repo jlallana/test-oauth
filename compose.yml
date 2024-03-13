@@ -1,7 +1,13 @@
 services:
   backend:
     build: backend
-    ports:
-      - "8080:80"
     volumes:
       - "./backend:/var/www/html"
+  frontend:
+    build: frontend
+    volumes:
+      - "./frontend:/app"
+  balancer:
+    build: balancer
+    ports:
+      - "80:80"
